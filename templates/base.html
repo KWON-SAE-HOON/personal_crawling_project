@@ -7,7 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-
+    <nav>
+        <h1>Steam trade community</h1>
+        <a href="{% url 'community:index' %}">Home</a>
+        <a href="{% url 'community:create' %}">Posting</a>
+    </nav>
     
     {% block content %}
     
