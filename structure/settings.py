@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'django_extensions',
     'allauth',
+    'bootstrap5',
     
 
     'community',
@@ -136,4 +137,4 @@ AUTH_USER_MODEL = 'account.TradeUser'
 
 
 # @login_required이면 해당값으로 바꿔줌
-LOGIN_URL = '/accounts/signin/'
+LOGIN_URL = '/account/signin/'

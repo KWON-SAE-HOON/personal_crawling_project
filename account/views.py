@@ -60,7 +60,7 @@ def signup(request):
         
     else:
         form = TradeUserForm()
-    return render(request, 'accounts/signup.html',{
+    return render(request, 'account/signup.html',{
         'form' : form,
     })
 
@@ -84,7 +84,7 @@ def signin(request):
         
     else:
         form = AuthenticationForm()
-    return render(request, 'accounts/signin.html',{
+    return render(request, 'account/signin.html',{
         'form' : form,
     })
 
