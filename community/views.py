@@ -80,7 +80,7 @@ def create_reply(request, posting_pk):
         reply.posting = posting # 비어있는 컬럼 => FK
         reply.user = request.user
         reply.save()
-        return redirect('blog:detail', posting_pk)
+        return redirect('community:detail', posting_pk)
 
 @login_required
 @require_POST
@@ -91,4 +91,4 @@ def delete_reply(request, posting_pk, reply_pk):
     if request.user == reply.user:
         reply.delete()
         
-    return redirect('blog:detail', posting.pk)
+    return redirect('community:detail', posting.pk)

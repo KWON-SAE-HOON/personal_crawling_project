@@ -7,11 +7,36 @@
     <title>Document</title>
 </head>
 <body>
-    <nav>
-        <h1>Steam trade community</h1>
-        <a href="{% url 'community:index' %}">Home</a>
-        <a href="{% url 'community:create' %}">Posting</a>
-    </nav>
+    <ul>
+       
+        <li>
+            <a href="{% url 'community:index' %}">HOME</a>
+        </li>
+        {% if request.user.is_authenticated %}
+     
+        <li>
+        <a href="{% url 'account:profile' request.user.username %}">{{request.user.username}} profile</a>
+        </li>
+        <li>
+            <a href="{% url 'account:create' %}">NEW</a>
+        </li>
+        <li>
+            <a href="{% url 'account:signout' %}">
+                <button>로그아웃</button>
+            </a>
+        </li>
+        {% else %}
+    
+        <li>
+            <a href="{% url 'account:signup' %}">계정 만들기</a>
+        </li>
+        <li>
+            <a href="{% url 'account:signin' %}">로그인</a>
+        </li>
+        
+        {% endif %}
+        
+    </ul>
     
     {% block content %}
     

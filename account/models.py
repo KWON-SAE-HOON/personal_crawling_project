@@ -1,13 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from community.models import Posting
 
-
-class SteamUser(AbstractUser):
+class SteamUser(models.Model):
     steam_id = models.CharField(max_length=17)
     name = models.CharField(max_length=200)
     profile_url = models.URLField()
     avatar_url = models.URLField()
     item_urls = models.URLField()
 
-    def __str__(self):
-        return self.name
+    
+class TradeUser(AbstractUser):
+     trade_request = models.ManyToManyField(Posting, related_name='trade_request')

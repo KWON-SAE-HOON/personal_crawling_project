@@ -132,7 +132,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-AUTH_USER_MODEL = 'account.SteamUser'
+AUTH_USER_MODEL = 'account.TradeUser'
 
 
 # @login_required이면 해당값으로 바꿔줌
