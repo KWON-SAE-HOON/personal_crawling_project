@@ -14,10 +14,19 @@ def get_steam_user_info(request, steam_id):
     
     r = requests.get(url)
     soup = BeautifulSoup(r.content, "html.parser")
-    name = soup.find("span", {"class": "actual_persona_name"}).text.strip()
+    name = soup.find("span", {"class": "actual_persona_name"})
+    if name:
+        name = name.text.strip()
+    else:
+        name = "Unknown"
+
     profile_url = url
     
-    avatar_url = soup.find("div", {"class": "playerAvatarAutoSizeInner"}).img["src"]
+    avatar_url = soup.find("div", {"class": "playerAvatarAutoSizeInner"})
+    if avatar_url:
+        avatar_url = avatar_url.img["src"]
+    else:
+        avatar_url = ""
     # 프로필 crawling
    
     user, created = SteamUser.objects.get_or_create(
