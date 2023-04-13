@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 
+<div class="text-white">
 
-{% block content %}
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
+    {% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        
+        
+        <button>submit</button>
+    </form>
     
     
-    <button>submit</button>
-</form>
-
-
-{% endblock content %}
+    {% endblock content %}
+</div>
 
 
 

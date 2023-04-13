@@ -40,9 +40,13 @@ def create(request):
 @require_safe
 def detail(request, posting_pk):
     posting = get_object_or_404(Posting, pk=posting_pk)
-
+    replies = posting.reply_set.all()
+    
+    form = ReplyForm(request.POST)
     return render(request, 'community/detail.html', {
         'posting' : posting,
+        'replies' : replies,
+        'form' : form,
     })
 
 @login_required
@@ -57,11 +61,11 @@ def update(request, posting_pk):
         form = PostingForm(request.POST, instance=posting)
         if form.is_valid:
             posting = form.save()
-            return redirect('account:detail', posting.pk)
+            return redirect('community:detail', posting.pk)
 
     else:
         form = PostingForm()
-    return render(request, 'account/create.html',{
+    return render(request, 'community/create.html',{
         'form' : form,
     })
 

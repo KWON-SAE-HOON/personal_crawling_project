@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{ posting.title }}</h1>
-<p>{{ posting.created_at}} | {{posting.updated_at}} </p>
+<h1 class="text-white">{{ posting.title }}</h1>
+<p class="text-white">{{ posting.created_at}} | {{posting.updated_at}} </p>
 
 <p>
-    <a href="{% url 'account:get_steam_user_info' request.user.steam_url %}">{{request.user.nickname}} profile</a>
+    <a class="text-white" href="{% url 'account:get_steam_user_info' posting.user.steam_url %}">{{posting.user.username}} profile</a>
 </p>
 
 
-<p>
+<p class="text-white">
     {{ posting.content | linebreaksbr }}
 </p>
 

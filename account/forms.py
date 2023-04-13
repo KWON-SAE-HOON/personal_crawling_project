@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 TradeUser = get_user_model()
 
 
-class TradeUserForm(forms.ModelForm):
+class TradeUserForm(UserCreationForm):
     class Meta:
         model = TradeUser
-        fields = ('steam_url', 'password','nickname',)
+        fields = ('steam_url','username',)

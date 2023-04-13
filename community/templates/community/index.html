@@ -1,19 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Posting</h1>
-{% for post in posts %}
-<a href="{% url 'account:get_steam_user_info' post.user.steam_url %}">{{ post.user.nickname }}</a>: 
+<h1 class="text-white">Posting</h1>
 
-<a href="{% url 'community:detail' post.pk %}">
+<table class="table bg-white"  >
+    <thead>
+        <tr>
+            <th scope="col">작성자</th>   
+            <th scope="col">제목</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <th>
+                <a class="text-dark" href="{% url 'account:get_steam_user_info' post.user.steam_url %}">{{ post.user.username }}</a>: 
+            </th>
+            <th>
+                <a class="text-info" href="{% url 'community:detail' post.pk %}">
+                    {{ post.title }}
+            </th>
+        </tr>
+            
+        {% endfor %}
+    </tbody>
+
+</table>
+{% comment %} {% for post in posts %}
+<a class="text-white" href="{% url 'account:get_steam_user_info' post.user.steam_url %}">{{ post.user.username }}</a>: 
+
+<a class="text-white" href="{% url 'community:detail' post.pk %}">
 {{ post.title }}
 </a>
-<br>
-
-{% endfor %}
-
-
-
+<br> {% endcomment %}
 
 
 {% endblock content %}
