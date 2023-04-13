@@ -25,24 +25,4 @@ alluath
 4. mtm으로 거래 요청 보냄
 
 
-## url 구조
-`/structure`
-메인화면 home과 login 창이 있음
 
-`/structure/accounts`
-account 목록이 있음
-
-`/structure/account/1`
-account detail
-
-`/structure/account/1/delete`
-account 삭제
-
-`/structure/account/create`
-account 생성
-
-
-
-
-## 중요!
-스팀 프로필 http를 입력함 거기서 ID 번호만 추출

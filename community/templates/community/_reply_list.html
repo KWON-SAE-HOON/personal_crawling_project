@@ -5,7 +5,7 @@
         {% for reply in replies %}
         <li>{{reply.content}}
         {% if request.user == reply.user %}
-        {% comment %} 적었던 계정으로만 댓글 삭제가 가능토록 함 {% endcomment %}
+   
             <form action="{% url 'community:delete_reply' posting.pk reply.pk %}" 
             method="POST"
             style="display: inline-block;">
@@ -17,7 +17,7 @@
         {% endfor %}
     </ul>
     {% else %}
-    <p>첫 댓글을 써주세요</p>
+    <p></p>
     {% endif %}
 </div>
 
