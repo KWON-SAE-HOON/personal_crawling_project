@@ -5,7 +5,7 @@
 <p>{{ posting.created_at}} | {{posting.updated_at}} </p>
 
 <p>
-    <a href="{% url 'account:get_steam_user_info' request.user.steam_url %}">{{request.user.steam_url}} profile</a>
+    <a href="{% url 'account:get_steam_user_info' request.user.steam_url %}">{{request.user.nickname}} profile</a>
 </p>
 
 

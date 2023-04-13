@@ -11,7 +11,7 @@ class Posting(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # settings 에서 auth_user_model(SteamUser)을 가져옴
+    # settings 에서 auth_user_model(TradeUser)을 가져옴
 
 
 class Reply(models.Model):
