@@ -54,6 +54,7 @@ def signup(request):
     if request.method == 'POST':
         form = TradeUserForm(request.POST)
         if form.is_valid():
+            
             user = form.save() # 새로 생성된 사용자
             login(request, user) # 새로 생성된 사용자로 로그인(set cookie)
             return redirect('community:index')

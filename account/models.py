@@ -12,3 +12,4 @@ class SteamUser(models.Model):
     
 class TradeUser(AbstractUser):
      trade_request = models.ManyToManyField(Posting, related_name='trade_request')
+     steam_url = models.URLField(max_length=200, default='https://steamcommunity.com/profiles')

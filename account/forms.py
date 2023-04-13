@@ -8,4 +8,4 @@ TradeUser = get_user_model()
 class TradeUserForm(forms.ModelForm):
     class Meta:
         model = TradeUser
-        fields = '__all__'
+        fields = ('steam_url', 'password',)
