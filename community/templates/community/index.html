@@ -3,12 +3,12 @@
 {% block content %}
 <h1>Posting</h1>
 {% for post in posts %}
+<a href="{% url 'account:get_steam_user_info' post.user.steam_url %}">{{ post.user.nickname }}</a>: 
 
-<a href="{% url 'accounts:get_steam_user_info' post.user.steam_id %}">{{ post.user }}</a>: 
 <a href="{% url 'community:detail' post.pk %}">
-{{ posting.title }}
+{{ post.title }}
 </a>
-
+<br>
 
 {% endfor %}
 

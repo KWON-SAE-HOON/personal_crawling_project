@@ -10,9 +10,10 @@ urlpatterns = [
 
     path('<int:posting_pk>/', views.detail, name='detail'),
    
+    path('<int:posting_pk>/delete/', views.delete, name='delete'),
+    
     path('<int:posting_pk>/update/', views.update, name='update'),
     
-    path('<int:posting_pk>/delete/', views.delete, name='delete'),
     
     path('<int:posting_pk>/replies/create/', views.create_reply, name='create_reply'),
 

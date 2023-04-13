@@ -11,5 +11,6 @@ class SteamUser(models.Model):
 
     
 class TradeUser(AbstractUser):
-     trade_request = models.ManyToManyField(Posting, related_name='trade_request')
-     steam_url = models.CharField(max_length=17 , default='17자리 숫자를 입력해 주세요')
+    trade_request = models.ManyToManyField(Posting, related_name='trade_request')
+    steam_url = models.CharField(max_length=17 )
+    nickname = models.CharField(max_length=10)

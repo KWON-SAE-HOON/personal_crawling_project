@@ -4,13 +4,17 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from . models import Posting, Reply
 from . forms import PostingForm, ReplyForm
+from account.models import SteamUser 
+
 
 @require_http_methods(['POST','GET'])
 def index(request):
     posts = Posting.objects.all()
+   
     
     return render(request, 'community/index.html', {
-        'posts' : posts
+        'posts' : posts,
+        
     })
 
 
@@ -47,7 +51,7 @@ def update(request, posting_pk):
     posting = get_object_or_404(Posting, pk=posting_pk)
 
     if request.user != posting.user:
-        return redirect('account:index')
+        return redirect('community:index')
 
     if request.method == 'POST':
         form = PostingForm(request.POST, instance=posting)
@@ -66,7 +70,7 @@ def update(request, posting_pk):
 def delete(request, posting_pk):
     posting = get_object_or_404(Posting, pk=posting_pk)
     posting.delete()
-    return redirect('account:index')
+    return redirect('community:index')
 
 @login_required
 @require_POST
