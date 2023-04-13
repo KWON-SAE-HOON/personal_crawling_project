@@ -15,10 +15,10 @@
         {% if request.user.is_authenticated %}
      
         <li>
-            <a href="{% url 'account:profile' request.user.username %}">{{request.user.username}} profile</a>
+            <a href="{% url 'account:get_steam_user_info' request.user.steam_url %}">{{request.user.steam_url}} profile</a>
         </li>
         <li>
-            <a href="{% url 'account:create' %}">NEW</a>
+            <a href="{% url 'community:create' %}">NEW</a>
         </li>
         <li>
             <a href="{% url 'account:signout' %}">
